@@ -112,17 +112,25 @@ POST /jira/issue
 Content-Type: application/json
 
 {
-  "summary": "Login button not working",
-  "description": "Clicking login does nothing",
-  "priority": "High"
+  "fields": {
+    "summary": "Login button not working",
+    "description": "Clicking login does nothing",
+    "issuetype": {
+      "name": "Bug"
+    },
+    "priority": {
+      "name": "High"
+    }
+  }
 }
+
 ```
 
 ---
 
 ### Azure Boards – Create Work Item
 ```http
-POST /azureboards/workitem
+POST /azureboards/workitems
 Content-Type: application/json
 
 {
@@ -150,7 +158,7 @@ Content-Type: application/json
 
 ### GitLab – Create Issue
 ```http
-POST /gitlab/issues
+POST /gitlab/issue
 Content-Type: application/json
 
 {
@@ -168,8 +176,11 @@ Content-Type: application/json
 
 {
   "summary": "Search returns empty results",
+  "product": "WebApp",
+  "component": "Search",
   "severity": "major"
 }
+
 ```
 
 ---
@@ -190,7 +201,7 @@ Content-Type: application/json
 
 ### Bitbucket – Create Issue
 ```http
-POST /bitbucket/issues
+POST /bitbucket/issue
 Content-Type: application/json
 
 {
@@ -203,7 +214,7 @@ Content-Type: application/json
 
 ### PagerDuty – Create Incident
 ```http
-POST /pagerDuty/incidents
+POST /pagerDuty/incident
 Content-Type: application/json
 
 {
@@ -216,7 +227,7 @@ Content-Type: application/json
 
 ### Redmine – Create Issue
 ```http
-POST /redmine/issues
+POST /redmine/issue
 Content-Type: application/json
 
 {
@@ -229,7 +240,7 @@ Content-Type: application/json
 
 ### Unfuddle – Create Ticket
 ```http
-POST /unfuddle/tickets
+POST /unfuddle/ticket
 Content-Type: application/json
 
 {
@@ -242,7 +253,7 @@ Content-Type: application/json
 
 ### Shortcut – Create Story
 ```http
-POST /shortcut/stories
+POST /shortcut/story
 Content-Type: application/json
 
 {
@@ -268,7 +279,7 @@ Content-Type: application/json
 
 ### FreshService – Create Ticket
 ```http
-POST /freshService/tickets
+POST /freshService/ticket
 Content-Type: application/json
 
 {
@@ -281,7 +292,7 @@ Content-Type: application/json
 
 ### Kenna – Create Vulnerability
 ```http
-POST /kenna/vulnerabilities
+POST /kenna/vulnerability
 Content-Type: application/json
 
 {

@@ -1,0 +1,221 @@
+=====================================
+INTEGRATION MOCK PLATFORM
+PowerShell Example Requests
+=====================================
+
+Make sure the server is running:
+http://localhost:4000
+
+You can find the PowerShell scripts of integrations below for ease of use
+-------------------------------------
+Jira – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/jira/issue `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "fields": {
+      "summary": "Login button not working",
+      "description": "Clicking login does nothing",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "priority": {
+        "name": "High"
+      }
+    }
+  }'
+
+
+-------------------------------------
+Azure Boards – Create Work Item
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/azureboards/workitems `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Checkout fails",
+    "type": "Bug",
+    "assignedTo": "qa@company.com"
+  }'
+
+-------------------------------------
+GitHub – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/github/issues `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Broken build",
+    "body": "Pipeline fails on main branch",
+    "labels": ["bug"]
+  }'
+
+-------------------------------------
+GitLab – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/gitlab/issue `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Registration error",
+    "description": "500 error on submit"
+  }'
+
+-------------------------------------
+Bugzilla – Create Bug
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/bugzilla/bug `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "summary": "Search returns empty results",
+    "product": "WebApp",
+    "component": "Search",
+    "severity": "major"
+  }'
+
+-------------------------------------
+FogBugz – Create Case
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/fogbugz/case `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Checkout page crashes",
+    "description": "Null reference exception",
+    "priority": "High"
+  }'
+
+-------------------------------------
+Bitbucket – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/bitbucket/issue `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Merge conflict",
+    "content": "Conflicts in payment module"
+  }'
+
+-------------------------------------
+PagerDuty – Create Incident
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/pagerDuty/incident `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Production outage",
+    "urgency": "high"
+  }'
+
+-------------------------------------
+Redmine – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/redmine/issue `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "subject": "Email service down",
+    "priority": "Urgent"
+  }'
+
+-------------------------------------
+Unfuddle – Create Ticket
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/unfuddle/ticket `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Broken API endpoint",
+    "description": "500 error"
+  }'
+
+-------------------------------------
+Shortcut – Create Story
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/shortcut/story `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "name": "Improve login performance",
+    "story_type": "feature"
+  }'
+
+-------------------------------------
+YouTrack – Create Issue
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/youtrack/issue `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "summary": "UI alignment issue",
+    "priority": "Medium"
+  }'
+
+-------------------------------------
+FreshService – Create Ticket
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/freshService/ticket `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "subject": "VPN access issue",
+    "category": "IT Support"
+  }'
+
+-------------------------------------
+Kenna – Create Vulnerability
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/kenna/vulnerability `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "SQL Injection",
+    "severity": "Critical"
+  }'
+
+-------------------------------------
+Pivotal Tracker – Create Story
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/pivotalTracker/story `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "title": "Login fails on Safari",
+    "storyType": "bug",
+    "estimate": 2,
+    "owner": "qa@company.com"
+  }'
+
+
+-------------------------------------
+DefectDojo – Import Netsparker Scan
+-------------------------------------
+Invoke-RestMethod `
+  -Uri http://localhost:4000/defectDojo/import-scan `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{
+    "scan_type": "Netsparker Scan",
+    "engagement": 12,
+    "verified": true,
+    "active": true,
+    "scan_date": "2025-01-10",
+    "minimum_severity": "Low"
+  }'
